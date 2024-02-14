@@ -1,3 +1,4 @@
+//FlutterのウィジェットとFirebaseの機能
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -8,12 +9,15 @@ class AddPage extends StatefulWidget {
   AddPageState createState() => AddPageState();
 }
 
+// AddPageの状態を管理するクラス
+// ユーザーの入力を受け取り、Firebaseに保存
 class AddPageState extends State<AddPage> {
   final _formKey = GlobalKey<FormState>();
   final _firstNameController = TextEditingController();
   final _lastNameController = TextEditingController();
   int _selectedYear = DateTime.now().year;
 
+// 2つのテキストフィールドと1つのドロップダウンメニュー
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +50,8 @@ class AddPageState extends State<AddPage> {
                   return null;
                 },
               ),
+              //ユーザーの誕生年を選択するためのメニュー。
+              //現在の年から100年前までの値が選択可能。
               DropdownButton<int>(
                 value: _selectedYear,
                 items: List<int>.generate(100, (i) => DateTime.now().year - i)
