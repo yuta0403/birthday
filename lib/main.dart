@@ -114,9 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     .update({
                                   'born': dateTime.year,
                                 });
-
                                 Navigator.pop(context);
-
                                 _fetchFirebaseData();
                               },
                             ),
